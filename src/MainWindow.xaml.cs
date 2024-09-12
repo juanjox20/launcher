@@ -154,7 +154,7 @@ namespace CanaryLauncherUpdate
 			buttonPlay.Visibility = Visibility.Collapsed;
 			webClient.DownloadProgressChanged += Client_DownloadProgressChanged;
 			webClient.DownloadFileCompleted += Client_DownloadFileCompleted;
-			webClient.DownloadFileAsync(new Uri(urlClient), GetLauncherPath() + "/tibia.zip");
+			webClient.DownloadFileAsync(new Uri(urlClient), GetLauncherPath() + "/packages.zip");
 		}
 
 		private void buttonPlay_Click(object sender, RoutedEventArgs e)
@@ -223,8 +223,8 @@ namespace CanaryLauncherUpdate
 			await Task.Run(() =>
 			{
 				Directory.CreateDirectory(GetLauncherPath());
-				ExtractZip(GetLauncherPath() + "/tibia.zip", ExtractExistingFileAction.OverwriteSilently);
-				File.Delete(GetLauncherPath() + "/tibia.zip");
+				ExtractZip(GetLauncherPath() + "/packages.zip", ExtractExistingFileAction.OverwriteSilently);
+				File.Delete(GetLauncherPath() + "/packages.zip");
 			});
 			progressbarDownload.Value = 100;
 
